@@ -1,5 +1,7 @@
-/vendor
+vendor
 composer.lock
-/phpunit.xml
+phpunit.xml
+.phpunit.cache/
 .phpunit.result.cache
-.idea
+.phpunit.cache/test-results
+.idea/

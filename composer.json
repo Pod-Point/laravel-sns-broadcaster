@@ -1,7 +1,17 @@
 {
     "name": "pod-point/laravel-aws-pubsub",
     "description": "A Laravel broadcasting driver and queue driver that broadcasts and listens to published events utilising AWS SNS, EventBridge and SQS.",
-    "keywords": ["laravel", "broadcasting", "broadcast", "queue", "listeners", "pubsub", "aws", "sns", "sqs"],
+    "keywords": [
+        "laravel",
+        "broadcasting",
+        "broadcast",
+        "queue",
+        "listeners",
+        "pubsub",
+        "aws",
+        "sns",
+        "sqs"
+    ],
     "homepage": "https://github.com/pod-point/laravel-aws-pubsub",
     "license": "MIT",
     "authors": [

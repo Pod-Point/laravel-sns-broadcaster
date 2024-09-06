@@ -82,7 +82,7 @@ class SqsSnsQueueTest extends TestCase
         $this->assertNull($queue->pop());
     }
 
-    public function readOnlyDataProvider(): array
+    public static function readOnlyDataProvider(): array
     {
         return [
             'pushRaw' => ['pushRaw', ['foo' => 'bar']],
