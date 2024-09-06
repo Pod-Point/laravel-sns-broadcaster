@@ -4,6 +4,7 @@ namespace PodPoint\AwsPubSub\Tests\Pub\BasicEvents;
 
 use Mockery as m;
 use Mockery\MockInterface;
+use PHPUnit\Framework\Attributes\Test;
 use PodPoint\AwsPubSub\Tests\Pub\Concerns\InteractsWithSns;
 use PodPoint\AwsPubSub\Tests\Pub\TestClasses\Events\UserRetrieved;
 use PodPoint\AwsPubSub\Tests\Pub\TestClasses\Events\UserRetrievedWithCustomName;
@@ -17,7 +18,7 @@ class SnsTest extends TestCase
 {
     use InteractsWithSns;
 
-    /** @test */
+    #[Test]
     public function it_broadcasts_basic_event()
     {
         $this->mockSns(function (MockInterface $sns) {
@@ -40,7 +41,7 @@ class SnsTest extends TestCase
         ])));
     }
 
-    /** @test */
+    #[Test]
     public function it_broadcasts_basic_event_with_action()
     {
         $this->mockSns(function (MockInterface $sns) {
@@ -62,7 +63,7 @@ class SnsTest extends TestCase
         ])));
     }
 
-    /** @test */
+    #[Test]
     public function it_broadcasts_basic_event_with_action_and_custom_payload()
     {
         $this->mockSns(function (MockInterface $sns) {
@@ -84,7 +85,7 @@ class SnsTest extends TestCase
         ])));
     }
 
-    /** @test */
+    #[Test]
     public function it_broadcasts_basic_event_to_multiple_channels()
     {
         $this->mockSns(function (MockInterface $sns) {
@@ -105,7 +106,7 @@ class SnsTest extends TestCase
         ])));
     }
 
-    /** @test */
+    #[Test]
     public function it_broadcasts_basic_event_name_as_subject()
     {
         $this->mockSns(function (MockInterface $sns) {
@@ -126,7 +127,7 @@ class SnsTest extends TestCase
         ])));
     }
 
-    /** @test */
+    #[Test]
     public function it_broadcasts_basic_event_name_as_subject_if_specified()
     {
         $this->mockSns(function (MockInterface $sns) {
@@ -147,7 +148,7 @@ class SnsTest extends TestCase
         ])));
     }
 
-    /** @test */
+    #[Test]
     public function it_can_use_an_arn_prefix_and_suffix()
     {
         config(['broadcasting.connections.sns.arn-prefix' => 'some-prefix:']);

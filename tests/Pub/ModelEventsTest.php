@@ -4,6 +4,7 @@ namespace PodPoint\AwsPubSub\Tests\Pub;
 
 use Mockery as m;
 use Mockery\MockInterface;
+use PHPUnit\Framework\Attributes\Test;
 use PodPoint\AwsPubSub\Tests\Pub\Concerns\InteractsWithSns;
 use PodPoint\AwsPubSub\Tests\Pub\TestClasses\Models\User;
 use PodPoint\AwsPubSub\Tests\Pub\TestClasses\Models\UserWithBroadcastingEvents;
@@ -18,7 +19,7 @@ class ModelEventsTest extends TestCase
 {
     use InteractsWithSns;
 
-    /** @test */
+    #[Test]
     public function it_broadcasts_model_event()
     {
         $this->mockSns(function (MockInterface $sns) {
@@ -38,7 +39,7 @@ class ModelEventsTest extends TestCase
         ]);
     }
 
-    /** @test */
+    #[Test]
     public function it_does_not_broadcast_model_events_without_trait()
     {
         $this->mockSns(function (MockInterface $sns) {
@@ -52,7 +53,7 @@ class ModelEventsTest extends TestCase
         ]);
     }
 
-    /** @test */
+    #[Test]
     public function it_broadcasts_model_event_with_custom_payload()
     {
         $this->mockSns(function (MockInterface $sns) {
@@ -74,7 +75,7 @@ class ModelEventsTest extends TestCase
         ]);
     }
 
-    /** @test */
+    #[Test]
     public function it_broadcasts_model_event_with_specified_event()
     {
         $user = UserWithBroadcastingEventsWhenUpdatedOnly::create([
@@ -98,7 +99,7 @@ class ModelEventsTest extends TestCase
         ]);
     }
 
-    /** @test */
+    #[Test]
     public function it_does_not_broadcast_model_event_without_specified_event()
     {
         $this->mockSns(function (MockInterface $sns) {
@@ -112,7 +113,7 @@ class ModelEventsTest extends TestCase
         ])->delete();
     }
 
-    /** @test */
+    #[Test]
     public function it_broadcasts_model_event_with_specified_event_and_custom_payload()
     {
         $user = UserWithBroadcastingEventsWithCustomPayloadWhenUpdatedOnly::create([
@@ -138,7 +139,7 @@ class ModelEventsTest extends TestCase
         ]);
     }
 
-    /** @test */
+    #[Test]
     public function it_broadcasts_model_events_to_multiple_channels()
     {
         $this->mockSns(function (MockInterface $sns) {
@@ -158,7 +159,7 @@ class ModelEventsTest extends TestCase
         ]);
     }
 
-    /** @test */
+    #[Test]
     public function it_broadcasts_model_event_name_as_subject()
     {
         $this->mockSns(function (MockInterface $sns) {
@@ -176,7 +177,7 @@ class ModelEventsTest extends TestCase
         ]);
     }
 
-    /** @test */
+    #[Test]
     public function it_broadcasts_model_event_name_as_subject_if_specified()
     {
         $this->mockSns(function (MockInterface $sns) {

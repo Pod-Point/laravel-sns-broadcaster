@@ -3,11 +3,13 @@
 namespace PodPoint\AwsPubSub\Tests;
 
 use Illuminate\Support\Facades\Event;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 use PodPoint\AwsPubSub\EventServiceProvider;
 
 class EventServiceProviderTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function it_can_prepare_configuration_credentials()
     {
         $config = EventServiceProvider::prepareConfigurationCredentials([
@@ -27,7 +29,7 @@ class EventServiceProviderTest extends TestCase
         ], $config);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_prepare_configuration_credentials_with_a_token()
     {
         $config = EventServiceProvider::prepareConfigurationCredentials([
@@ -50,7 +52,7 @@ class EventServiceProviderTest extends TestCase
         ], $config);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_make_sure_some_aws_credentials_are_provided_before_preparing_the_credentials()
     {
         $config = EventServiceProvider::prepareConfigurationCredentials([
@@ -115,10 +117,8 @@ class EventServiceProviderTest extends TestCase
         ];
     }
 
-    /**
-     * @test
-     * @dataProvider invalidCredentialsDataProvider
-     */
+    #[Test]
+    #[DataProvider('invalidCredentialsDataProvider')]
     public function it_can_make_sure_some_aws_credentials_are_provided_and_valid(array $invalidCredentials)
     {
         $config = EventServiceProvider::prepareConfigurationCredentials(array_merge([
@@ -129,9 +129,7 @@ class EventServiceProviderTest extends TestCase
         $this->assertArrayNotHasKey('credentials', $config);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_can_register_listeners_when_listen_array_is_populated()
     {
         $this->app->register(TestPubSubEventServiceProvider::class);

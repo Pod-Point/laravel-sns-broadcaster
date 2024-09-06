@@ -2,6 +2,7 @@
 
 namespace PodPoint\AwsPubSub\Tests\Pub\Broadcasting\Broadcasters;
 
+use PHPUnit\Framework\Attributes\Test;
 use PodPoint\AwsPubSub\EventServiceProvider;
 use PodPoint\AwsPubSub\Pub\Broadcasting\Broadcasters\SnsBroadcaster;
 use PodPoint\AwsPubSub\Tests\Pub\Concerns\InteractsWithSns;
@@ -11,7 +12,7 @@ class SnsBroadcasterTest extends TestCase
 {
     use InteractsWithSns;
 
-    /** @test */
+    #[Test]
     public function it_can_instantiate_the_broadcaster()
     {
         $broadcaster = (new EventServiceProvider($this->app))->createSnsDriver([
@@ -25,7 +26,7 @@ class SnsBroadcasterTest extends TestCase
         $this->assertInstanceOf(SnsBroadcaster::class, $broadcaster);
     }
 
-    /** @test */
+    #[Test]
     public function it_supports_optional_aws_credentials()
     {
         $broadcaster = (new EventServiceProvider($this->app))->createSnsDriver([
@@ -37,7 +38,7 @@ class SnsBroadcasterTest extends TestCase
         $this->assertInstanceOf(SnsBroadcaster::class, $broadcaster);
     }
 
-    /** @test */
+    #[Test]
     public function it_supports_null_aws_credentials()
     {
         $broadcaster = (new EventServiceProvider($this->app))->createSnsDriver([
