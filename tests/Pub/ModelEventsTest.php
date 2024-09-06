@@ -20,6 +20,7 @@ class ModelEventsTest extends TestCase
     use InteractsWithSns;
 
     #[Test]
+    /** @test */
     public function it_broadcasts_model_event()
     {
         $this->mockSns(function (MockInterface $sns) {
@@ -40,6 +41,7 @@ class ModelEventsTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_does_not_broadcast_model_events_without_trait()
     {
         $this->mockSns(function (MockInterface $sns) {
@@ -54,6 +56,7 @@ class ModelEventsTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_broadcasts_model_event_with_custom_payload()
     {
         $this->mockSns(function (MockInterface $sns) {
@@ -76,6 +79,7 @@ class ModelEventsTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_broadcasts_model_event_with_specified_event()
     {
         $user = UserWithBroadcastingEventsWhenUpdatedOnly::create([
@@ -100,6 +104,7 @@ class ModelEventsTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_does_not_broadcast_model_event_without_specified_event()
     {
         $this->mockSns(function (MockInterface $sns) {
@@ -114,6 +119,7 @@ class ModelEventsTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_broadcasts_model_event_with_specified_event_and_custom_payload()
     {
         $user = UserWithBroadcastingEventsWithCustomPayloadWhenUpdatedOnly::create([
@@ -140,6 +146,7 @@ class ModelEventsTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_broadcasts_model_events_to_multiple_channels()
     {
         $this->mockSns(function (MockInterface $sns) {
@@ -160,6 +167,7 @@ class ModelEventsTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_broadcasts_model_event_name_as_subject()
     {
         $this->mockSns(function (MockInterface $sns) {
@@ -178,6 +186,7 @@ class ModelEventsTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_broadcasts_model_event_name_as_subject_if_specified()
     {
         $this->mockSns(function (MockInterface $sns) {

@@ -19,6 +19,7 @@ class SnsTest extends TestCase
     use InteractsWithSns;
 
     #[Test]
+    /** @test */
     public function it_broadcasts_basic_event()
     {
         $this->mockSns(function (MockInterface $sns) {
@@ -42,6 +43,7 @@ class SnsTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_broadcasts_basic_event_with_action()
     {
         $this->mockSns(function (MockInterface $sns) {
@@ -64,6 +66,7 @@ class SnsTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_broadcasts_basic_event_with_action_and_custom_payload()
     {
         $this->mockSns(function (MockInterface $sns) {
@@ -86,6 +89,7 @@ class SnsTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_broadcasts_basic_event_to_multiple_channels()
     {
         $this->mockSns(function (MockInterface $sns) {
@@ -107,6 +111,7 @@ class SnsTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_broadcasts_basic_event_name_as_subject()
     {
         $this->mockSns(function (MockInterface $sns) {
@@ -128,6 +133,7 @@ class SnsTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_broadcasts_basic_event_name_as_subject_if_specified()
     {
         $this->mockSns(function (MockInterface $sns) {
@@ -149,6 +155,7 @@ class SnsTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_can_use_an_arn_prefix_and_suffix()
     {
         config(['broadcasting.connections.sns.arn-prefix' => 'some-prefix:']);

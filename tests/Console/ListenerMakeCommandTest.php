@@ -24,6 +24,7 @@ class ListenerMakeCommandTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_can_generate_pubsub_event_listeners()
     {
         $this->assertFileDoesNotExist(app_path('Listeners/PubSub/SomeListener.php'));
@@ -37,6 +38,7 @@ class ListenerMakeCommandTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_cannot_generate_pubsub_event_listeners_which_already_exist()
     {
         $this->assertFileDoesNotExist(app_path('Listeners/PubSub/SomeListener.php'));

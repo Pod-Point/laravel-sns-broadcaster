@@ -10,6 +10,7 @@ use PodPoint\AwsPubSub\EventServiceProvider;
 class EventServiceProviderTest extends TestCase
 {
     #[Test]
+    /** @test */
     public function it_can_prepare_configuration_credentials()
     {
         $config = EventServiceProvider::prepareConfigurationCredentials([
@@ -30,6 +31,7 @@ class EventServiceProviderTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_can_prepare_configuration_credentials_with_a_token()
     {
         $config = EventServiceProvider::prepareConfigurationCredentials([
@@ -53,6 +55,7 @@ class EventServiceProviderTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_can_make_sure_some_aws_credentials_are_provided_before_preparing_the_credentials()
     {
         $config = EventServiceProvider::prepareConfigurationCredentials([
@@ -118,7 +121,9 @@ class EventServiceProviderTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     #[DataProvider('invalidCredentialsDataProvider')]
+    /** @dataProvider invalidCredentialsDataProvider */
     public function it_can_make_sure_some_aws_credentials_are_provided_and_valid(array $invalidCredentials)
     {
         $config = EventServiceProvider::prepareConfigurationCredentials(array_merge([
@@ -130,6 +135,7 @@ class EventServiceProviderTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_can_register_listeners_when_listen_array_is_populated()
     {
         $this->app->register(TestPubSubEventServiceProvider::class);

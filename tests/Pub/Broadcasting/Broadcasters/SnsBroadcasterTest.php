@@ -13,6 +13,7 @@ class SnsBroadcasterTest extends TestCase
     use InteractsWithSns;
 
     #[Test]
+    /** @test */
     public function it_can_instantiate_the_broadcaster()
     {
         $broadcaster = (new EventServiceProvider($this->app))->createSnsDriver([
@@ -27,6 +28,7 @@ class SnsBroadcasterTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_supports_optional_aws_credentials()
     {
         $broadcaster = (new EventServiceProvider($this->app))->createSnsDriver([
@@ -39,6 +41,7 @@ class SnsBroadcasterTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_supports_null_aws_credentials()
     {
         $broadcaster = (new EventServiceProvider($this->app))->createSnsDriver([

@@ -28,6 +28,7 @@ class SnsEventDispatcherJobTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_can_dispatch_an_event_using_the_topic_and_forward_the_message_payload()
     {
         $this->mockedJobData = $this->mockedRichNotificationMessage([
@@ -46,6 +47,7 @@ class SnsEventDispatcherJobTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_can_dispatch_an_event_using_the_subject_if_found_in_the_notification_payload()
     {
         $this->mockedJobData = $this->mockedRichNotificationMessage([
@@ -66,6 +68,7 @@ class SnsEventDispatcherJobTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_dispatches_an_event_using_the_topic_if_no_subject_can_be_found()
     {
         $this->mockedJobData = $this->mockedRichNotificationMessage([
@@ -78,6 +81,7 @@ class SnsEventDispatcherJobTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_will_handle_empty_messages()
     {
         $this->mockedJobData = $this->mockedRichNotificationMessage([
@@ -96,6 +100,7 @@ class SnsEventDispatcherJobTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_will_handle_empty_messages_with_a_subject()
     {
         $this->mockedJobData = $this->mockedRichNotificationMessage([
@@ -114,6 +119,7 @@ class SnsEventDispatcherJobTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_will_not_handle_raw_notification_messages_and_release_the_message_onto_the_queue()
     {
         Log::shouldReceive('error')->once()->with(
@@ -133,6 +139,7 @@ class SnsEventDispatcherJobTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_will_not_handle_messages_where_the_event_name_to_trigger_cannot_be_resolved_and_delete_the_message_from_the_queue()
     {
         $this->mockedJobData = $this->mockedRichNotificationMessage([
@@ -150,6 +157,7 @@ class SnsEventDispatcherJobTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_will_delete_the_message_from_the_queue_when_it_managed_to_dispatch_an_event()
     {
         $this->mockedJobData = $this->mockedRichNotificationMessage([

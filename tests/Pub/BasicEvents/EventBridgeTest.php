@@ -20,6 +20,7 @@ class EventBridgeTest extends TestCase
     use InteractsWithEventBridge;
 
     #[Test]
+    /** @test */
     public function it_broadcasts_basic_event_with_the_event_name_as_the_detail_type_and_serialised_event_as_the_detail()
     {
         $event = new UserRetrieved($this->createJane());
@@ -40,6 +41,7 @@ class EventBridgeTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_broadcasts_basic_event_with_action()
     {
         $event = new UserRetrievedWithCustomName($this->createJane());
@@ -58,6 +60,7 @@ class EventBridgeTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_broadcasts_basic_event_with_action_and_custom_payload()
     {
         $event = new UserRetrievedWithCustomPayload($this->createJane());
@@ -79,6 +82,7 @@ class EventBridgeTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_broadcasts_basic_event_to_multiple_channels_as_buses()
     {
         $event = new UserRetrievedWithMultipleChannels($this->createJane());
@@ -103,6 +107,7 @@ class EventBridgeTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_can_use_a_source()
     {
         config(['broadcasting.connections.eventbridge.source' => 'some-other-source']);
@@ -127,6 +132,7 @@ class EventBridgeTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_logs_errors_when_events_fail_to_send()
     {
         $event = new UserRetrieved($this->createJane());

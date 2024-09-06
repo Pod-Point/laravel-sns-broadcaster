@@ -23,6 +23,7 @@ class InstallCommandTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_can_install_the_service_provider()
     {
         $this->assertFileDoesNotExist(app_path('Providers').'/PubSubEventServiceProvider.php');
@@ -36,6 +37,7 @@ class InstallCommandTest extends TestCase
 
 
     #[Test]
+    /** @test */
     public function it_does_not_install_the_service_provider_if_already_existing()
     {
         $this->artisan('pubsub:install')->assertExitCode(0);

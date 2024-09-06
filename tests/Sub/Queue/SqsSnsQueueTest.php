@@ -32,6 +32,7 @@ class SqsSnsQueueTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_can_instantiate_the_queue()
     {
         $queue = new SqsSnsQueue($this->sqs, 'default');
@@ -40,6 +41,7 @@ class SqsSnsQueueTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_can_receive_a_rich_notification_message_and_pop_it_off_the_queue()
     {
         $this->sqs->shouldReceive('receiveMessage')
@@ -56,6 +58,7 @@ class SqsSnsQueueTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_should_use_the_queue_name_including_prefix_and_suffix()
     {
         $this->sqs->shouldReceive('receiveMessage')
@@ -72,6 +75,7 @@ class SqsSnsQueueTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_properly_handles_empty_message_when_popping_it_off_the_queue()
     {
         $this->sqs->shouldReceive('receiveMessage')
@@ -94,7 +98,9 @@ class SqsSnsQueueTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     #[DataProvider('readOnlyDataProvider')]
+    /** @dataProvider readOnlyDataProvider */
     public function it_is_a_read_only_queue_driver_and_will_not_push_messages_onto_a_queue(string $method, ...$args)
     {
         Log::shouldReceive('error')->once()->with('Unsupported: sqs-sns queue driver is read-only');

@@ -10,6 +10,7 @@ use PodPoint\AwsPubSub\Tests\TestCase;
 class SqsSnsConnectorTest extends TestCase
 {
     #[Test]
+    /** @test */
     public function it_can_instantiate_the_connector_and_connect_to_the_queue()
     {
         $queue = (new SqsSnsConnector)->connect([
@@ -25,6 +26,7 @@ class SqsSnsConnectorTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_can_use_a_queue_prefix()
     {
         $queue = (new SqsSnsConnector)->connect([
@@ -40,6 +42,7 @@ class SqsSnsConnectorTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_can_use_a_queue_suffix()
     {
         $queue = (new SqsSnsConnector)->connect([
@@ -56,6 +59,7 @@ class SqsSnsConnectorTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_supports_optional_aws_credentials()
     {
         $queue = (new SqsSnsConnector)->connect([
@@ -69,6 +73,7 @@ class SqsSnsConnectorTest extends TestCase
     }
 
     #[Test]
+    /** @test */
     public function it_supports_null_aws_credentials()
     {
         $queue = (new SqsSnsConnector)->connect([
